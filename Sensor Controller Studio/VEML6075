@@ -1,0 +1,220 @@
+/*
+Copyright  2016,2017,2018,2019 Patrick A Blanchard MD, iphysi.com: https://github.com/iphysi-opensource
+associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+CC1310: Sensor Controller Studio :: i2c bitbang protocol 
+discussed here: https://e2e.ti.com/support/wireless-connectivity/sub-1-ghz/f/156/t/638783
+The VEML6075 senses UVA and UVB light and incorporates photodiode, amplifiers, and analog / digital circuits into a single chip using a CMOS process. When the UV sensor is applied, it reads UVA and UVB intensity providing measure of the signal strength thusly allowing for UVI measurement. The VEML6075 provides temperature compensation. VEML6075?s functionality is easily operated via the simple command format of I2C (SMBus compatible) interface protocol. VEML6075?s operating voltage ranges from 1.7 V to 3.6 V. VEML6075 is packaged in a lead (Pb)-free 4 pin OPLGA package which offers the best market-proven reliability.
+*/
+// VEML6075 UVA register  peak 365nm; bandwidth 350-375nm
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_REG_RESULT_UVA);
+// If successful
+if (state.i2cStatus == 0x0000) {
+    U16 resultRegL;
+    U16 resultRegH;
+    // Read the result
+    i2cRepeatedStart();
+    i2cTx(I2C_OP_READ | V6075_I2C_ADDR);
+    i2cRxAck(resultRegL);
+    i2cRxNack(resultRegH);
+    i2cStop();
+    U16 value = (resultRegH << 8) | (resultRegL);
+    output.UVA = value;
+} else {
+    i2cStop();
+}
+// VEML6075 UVB register peak 330nm; bandwidth 315-340nm
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_REG_RESULT_UVB);
+// If successful
+if (state.i2cStatus == 0x0000) {
+    U16 resultRegL;
+    U16 resultRegH;
+    // Read the result
+    i2cRepeatedStart();
+    i2cTx(I2C_OP_READ | V6075_I2C_ADDR);
+    i2cRxAck(resultRegL);
+    i2cRxNack(resultRegH);
+    i2cStop();
+    U16 value = (resultRegH << 8) | (resultRegL);
+    output.UVB = value;
+} else {
+    i2cStop();
+}
+// VEML6075 Visible Light register
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_REG_RESULT_VISIBLE);
+// If successful
+if (state.i2cStatus == 0x0000) {
+    U16 resultRegL;
+    U16 resultRegH;
+    // Read the result
+    i2cRepeatedStart();
+    i2cTx(I2C_OP_READ | V6075_I2C_ADDR);
+    i2cRxAck(resultRegL);
+    i2cRxNack(resultRegH);
+    i2cStop();
+    U16 value = (resultRegH << 8) | (resultRegL);
+    output.Visible = value;
+} else {
+    i2cStop();
+}
+// VEML6075 Infrared register
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_REG_RESULT_IR);
+// If successful
+if (state.i2cStatus == 0x0000) {
+    U16 resultRegL;
+    U16 resultRegH;
+    // Read the result
+    i2cRepeatedStart();
+    i2cTx(I2C_OP_READ | V6075_I2C_ADDR);
+    i2cRxAck(resultRegL);
+    i2cRxNack(resultRegH);
+    i2cStop();
+    U16 value = (resultRegH << 8) | (resultRegL);
+    output.Infrared = value;
+} else {
+    i2cStop();
+}]]></sccode>
+        <sccode name="execute"><![CDATA[// Vishay VEML6075 read results counts/uW/cm2 responsivity I(t)= 50ms
+// allow for sensor integration :: responsivity I(t)= 50ms
+// for the VEML 6072 pause 50 milliseconds + a 20% margin
+evhSetupTimerTrigger(0, 60, 2);
+// Schedule next execution
+fwScheduleTask(1);
+// __________________________________________________
+//
+// <<< USER INTERFACE AND uCsub:uCmain INTERFACE >>>
+// __________________________________________________
+//
+// keep user interface and input within uCsub and notify uCmain when required
+// Seven states for RED GREEN LED status 000 mask (includes FlashAlt and FlashSync)
+// 000 GreenOFF:RedOFF:FlashOff
+// 001 GreenOFF:RedOFF:FlashAlt
+// 010 GreenOFF:RedON:FlashOff
+// 011 GreenOFF:RedON:FlashON
+// 100 GreenON:RedOFF:FlashOff
+// 101 GreenON:RedOFF:FlashON
+// 110 GreenON:RedON:FlashOff
+// 111 GreenON:RedON:FlashSync
+// increase or decrease low and high threshold values
+// >> buttons
+// exit sensor mode and enter button mode
+// ...code... 2 button push for > 5 seconds
+// light Green LED to indicate adjustment of highT first
+// LEFT << highT >> RIGHT
+// ...code...
+// two button push
+// ...code...
+// light Red LED to indicate adjustment of lowT
+// LEFT << lowT >> RIGHT
+// ...code...
+// return to sensor readings and exit button mode
+// ...code... 2 button push for > 5 seconds
+// MAIN uCsub routine
+// Set variables and initialize explicitly
+U16 UVled = output.UVB; // pick UVA, UVB, Visible, IR spectrum
+U16 LEDstate = 0xF0;
+U16 BUTTONstate = 0xF0;
+U16 COLDoff = 0x0100; // time to shutdown when too cold
+// sensor online and operational?
+if (state.i2cStatus == 0x0000) {
+    // Increment state counter
+    state.ONcounter += 1;
+    // Sun is going down
+    // Set RED when cold
+    if (UVled < cfg.LowONthreshold) {
+        gpioClearOutput(AUXIO_O_GREEN);
+        gpioSetOutput(AUXIO_O_RED);
+        // Flash RED when too cold (not developing at all)
+        if (UVled < cfg.LowFLASHthreshold) {
+            state.OFFcounter += 1;
+            if (state.ONcounter & 0x01) {
+                gpioClearOutput(AUXIO_O_GREEN);
+                gpioSetOutput(AUXIO_O_RED);
+            } else {
+                gpioClearOutput(AUXIO_O_GREEN);
+                gpioClearOutput(AUXIO_O_RED);
+            }
+        } else {
+            state.OFFcounter = 0x0000;
+        }
+        // shutdown if LowFLASHthreshol for period of time
+        if (state.OFFcounter > COLDoff) {
+            gpioClearOutput(AUXIO_O_GREEN);
+            gpioClearOutput(AUXIO_O_RED);
+        }
+    }
+    // Sun is warming up
+    if (UVled > cfg.LowONthreshold) {
+        // set GREEN LED and RED LED when just right
+        if (UVled < cfg.HighONthreshold) {
+            gpioSetOutput(AUXIO_O_GREEN);
+            gpioSetOutput(AUXIO_O_RED);
+        }
+        // Set just GREEN LED when getting too warm
+        if (UVled > cfg.HighONthreshold) {
+            gpioSetOutput(AUXIO_O_GREEN);
+            gpioClearOutput(AUXIO_O_RED);
+        }
+        // Flash GREEN LED when too hot
+        if (UVled > cfg.HighFLASHthreshold) {
+            if (state.ONcounter & 0x01) {
+                gpioSetOutput(AUXIO_O_GREEN);
+                gpioClearOutput(AUXIO_O_RED);
+            } else {
+                gpioClearOutput(AUXIO_O_GREEN);
+                gpioClearOutput(AUXIO_O_RED);
+            }
+        }
+    }
+}   // end if i2cStatus = 0x0000]]></sccode>
+        <sccode name="initialize"><![CDATA[// boot and reset the VEML 6075 chipset
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_CFG__UV_AF_AUTO);
+i2cStop();
+// VEML6075 Device ID
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6705_REG_RESULT_DEVICEid);
+// If successful
+if (state.i2cStatus == 0x0000) {
+    U16 resultRegL;
+    U16 resultRegH;
+    // Read the result
+    i2cRepeatedStart();
+    i2cTx(I2C_OP_READ | V6075_I2C_ADDR);
+    i2cRxAck(resultRegL);
+    i2cRxNack(resultRegH);
+    i2cStop();
+    U16 IDvalue = (resultRegH << 8) | (resultRegL);
+    state.deviceID = IDvalue;
+}   else {
+    i2cStop();
+}]]></sccode>
+        <sccode name="terminate"><![CDATA[// Shut down the VEML6075 sensor
+i2cStart();
+i2cTx(I2C_OP_WRITE | V6075_I2C_ADDR);
+i2cTx(V6075_CFG_SD);
+i2cStop();
+// Turn off the lights
+gpioClearOutput(AUXIO_O_GREEN);
+gpioClearOutput(AUXIO_O_RED);
+// for debugging only
+state.deviceID = 0x1111;
+// Cancel the potentially active event trigger
+evhCancelTrigger(0);]]></sccode>
+        <tt_iter>run_execute,run_event0</tt_iter>
+        <tt_struct>output.UVA,output.UVB,output.Visible</tt_struct>
+        <rtl_struct></rtl_struct>
+        <rtl_task_sel en="1" struct_log_list="output"/>
+    </task>
+</project>

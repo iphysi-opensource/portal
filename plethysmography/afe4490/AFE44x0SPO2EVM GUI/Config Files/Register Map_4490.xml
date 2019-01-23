@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?><Project_Name><Project_Name>AFE44x0SPO2_FE_EVM_GUI</Project_Name><Version>1.0.0.0</Version><Register_Map><Block Block_Name="AFE4490"><Block_Name>AFE4490</Block_Name><Register Address="0x0" Name="CONTROL0"><Name>CONTROL0</Name><Address>0x0</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFF0</Mask_Pattern><Mask_Data/><No_Of_Fields>4</No_Of_Fields><Fields><Field1><Field_Name>SPI READ[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>SPI Read
+0 = SPI Read is disabled
+1 = SPI Read is enabled</Field_Description></Field1><Field2><Field_Name>TIM_COUNT_RST[1:1]</Field_Name><Start_Bit>1</Start_Bit><End_Bit>1</End_Bit><Field_Description>Timer Counter Reset
+0 = Disables timer counter reset, required for normal timer operation
+1 = Timer counters are in reset state</Field_Description></Field2><Field3><Field_Name>DIAG_EN[2:2]</Field_Name><Start_Bit>2</Start_Bit><End_Bit>2</End_Bit><Field_Description>Diagnostic Enable
+0 = No Action
+1= Diagnostic mode is enabled &amp; the diagnostics sequence starts when this bit is set.
+At the end of the sequence, the status of the faults are stored in the register
+Diagnostics Flags&lt;23:0&gt;. After this, the DIAG_EN register bit self clears to 0.</Field_Description></Field3><Field4><Field_Name>SW_RST[3:3]</Field_Name><Start_Bit>3</Start_Bit><End_Bit>3</End_Bit><Field_Description>Software Reset
+0 = No Action
+1 = Software reset applied – resets all internal registers to their default values and
+self-clears to 0</Field_Description></Field4></Fields></Register><Register Address="0x1" Name="LED2STC"><Name>LED2STC</Name><Address>0x1</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6080</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2STC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Sample LED2 Start count
+The contents of this register can be used to position the start of the “Sample LED2”
+signal with respect to the pulse repetition period (PRP, specified in register 29). It is
+specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x2" Name="LED2ENDC"><Name>LED2ENDC</Name><Address>0x2</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>7998</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2ENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Sample LED2 End Count
+The contents of this register can be used to position the end of "Sample LED2" signal
+with respect to the pulse repetition period (PRP, specified in register 29). It is
+specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x3" Name="LED2LEDSTC"><Name>LED2LEDSTC</Name><Address>0x3</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6000</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2LEDSTC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED2 LED Start Count
+The contents of this register can be used to position the start of the LED2 LED with
+respect to the pulse repetition period (PRP, specified in register 29). It is specified
+as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x4" Name="LED2LEDENDC"><Name>LED2LEDENDC</Name><Address>0x4</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>7999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2LEDENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED2 LED End Count
+The contents of this register can be used to position the end of the LED2 LED
+signal with respect to the pulse repetition period (PRP, specified in register 29). It
+is specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x5" Name="ALED2STC"><Name>ALED2STC</Name><Address>0x5</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>80</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED2STC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED2 Start Count
+The contents of this register can be used to position the start of the Sample Ambient (LDE2) with respect to the pulse repetition period (PRP, specified in register 29). It is specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x6" Name="ALED2ENDC"><Name>ALED2ENDC</Name><Address>0x6</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>1998</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED2ENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED2 End Count
+The contents of this register can be used to position the end of the Sample Ambient
+(LED2) signal with respect to the pulse repetition period (PRP, specified in register
+29). It is specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x7" Name="LED1STC"><Name>LED1STC</Name><Address>0x7</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>2080</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1STC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 Start Count
+The contents of this register can be used to position the start of the Sample LED1 signal with respect to the pulse repetition period (PRP, specified in register 29). It is specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x8" Name="LED1ENDC"><Name>LED1ENDC</Name><Address>0x8</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>3998</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1ENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 End Count
+The contents of this register can be used to position the end of the Sample LED1 signal with respect to the pulse repetition period (PRP, specified in register 29). It is specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x9" Name="LED1LEDSTC"><Name>LED1LEDSTC</Name><Address>0x9</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>2000</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1LEDSTC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 LED Start Count
+The contents of this register can be used to position the start of the LED1 LED signal
+with respect to the pulse repetition period (PRP, specified in register 29). It is
+specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xA" Name="LED1LEDENDC"><Name>LED1LEDENDC</Name><Address>0xA</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>3999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1LEDENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 LED End Count
+The contents of this register can be used to position the end of the LED1 LED signal
+with respect to the pulse repetition period (PRP, specified in register 29). It is
+specified as the number of 4Mhz clock cycles.
+Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xB" Name="ALED1STC"><Name>ALED1STC</Name><Address>0xB</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>4080</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED1STC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED1 Start Count
+The contents of this register can be used to position the start of the Sample Ambient (LED1) signal with respect to the pulse repetition period (PRP, specified in register 29). It is specified as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xC" Name="ALED1ENDC"><Name>ALED1ENDC</Name><Address>0xC</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>5998</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED1ENDC[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED1 End Count
+The contents of this register can be used to position the end of the Sample Ambient
+(LED1) signal with respect to the pulse repetition period (PRP, specified in register 29). It is specified as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xD" Name="LED2CONVST"><Name>LED2CONVST</Name><Address>0xD</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2CONVST[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED2 Convert Start Count
+The contents of this register can be used to position the start of the LED2 conversion
+signal with respect to the pulse repetition period (PRP, specified in register 29). It is
+specified as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum
+value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xE" Name="LED2CONVEND"><Name>LED2CONVEND</Name><Address>0xE</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>1999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2CONVEND[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED2 Convert End Count
+The contents of this register can be used to position the end of the LED2 conversion
+signal with respect to the pulse repetition period (PRP, specified in register 29). It
+is specified as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0xF" Name="ALED2CONVST"><Name>ALED2CONVST</Name><Address>0xF</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>2006</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED2CONVST[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED2 Convert Start Count
+The contents of this register can be used to position the start of the LED2 ambient
+conversion signal with respect to the pulse repetition period (PRP, specified in
+register 29). It is specified as the number of 4Mhz clock cycles. Minimum value =
+0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x10" Name="ALED2CONVEND"><Name>ALED2CONVEND</Name><Address>0x10</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>3999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED2CONVEND[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED2 Convert End Count
+The contents of this register can be used to position the end of the LED2 ambient
+conversion signal with respect to the pulse repetition period (PRP). It is specified
+as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum value
+&lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x11" Name="LED1CONVST"><Name>LED1CONVST</Name><Address>0x11</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>4006</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1CONVST[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 Convert Start Count
+The contents of this register can be used to position the start of the LED1 ambient
+conversion signal with respect to the pulse repetition period (PRP, specified in
+register 29). It is specified as the number of 4Mhz clock cycles. Minimum value =
+0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x12" Name="LED1CONVEND"><Name>LED1CONVEND</Name><Address>0x12</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>5999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1CONVEND[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>LED1 Convert End Count
+The contents of this register can be used to position the end of the LED1 ambient conversion signal
+with respect to the pulse repetition period (PRP). It is specified as the number of 4Mhz clock
+cycles. Minimum value = 0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x13" Name="ALED1CONVST"><Name>ALED1CONVST</Name><Address>0x13</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6006</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED1CONVST[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED1 Convert Start Count
+The contents of this register can be used to position the start of the LED1 Ambient
+conversion signal with respect to the pulse repetition period (PRP, specified in
+register 29). It is specified as the number of 4Mhz clock cycles. Minimum value =
+0x0000, maximum value &lt;= PRP value</Field_Description></Field1></Fields></Register><Register Address="0x14" Name="ALED1CONVEND"><Name>ALED1CONVEND</Name><Address>0x14</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>7999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED1CONVEND[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Ambient LED1 Convert End Count
+The contents of this register can be used to position the end of the LED1 Ambient
+conversion signal with respect to the pulse repetition period (PRP). It is specified
+as the number of 4Mhz clock cycles. Minimum value = 0x0000, maximum value &lt;=
+PRP value</Field_Description></Field1></Fields></Register><Register Address="0x15" Name="ADCRSTSTCT0"><Name>ADCRSTSTCT0</Name><Address>0x15</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTSTCT0[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 0 Start Count
+The contents of this register can be used to position the Start of the ADC Reset conversion
+signal.</Field_Description></Field1></Fields></Register><Register Address="0x16" Name="ADCRSTENDCT0"><Name>ADCRSTENDCT0</Name><Address>0x16</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>5</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTENDCT0[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 0 End Count
+The contents of this register can be used to position the End of the ADC Reset
+conversion signal.</Field_Description></Field1></Fields></Register><Register Address="0x17" Name="ADCRSTSTCT1"><Name>ADCRSTSTCT1</Name><Address>0x17</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>2000</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTSTCT1[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 1 Start Count
+The contents of this register can be used to position the Start of the ADC Reset conversion
+signal.</Field_Description></Field1></Fields></Register><Register Address="0x18" Name="ADCRSTENDCT1"><Name>ADCRSTENDCT1</Name><Address>0x18</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>2005</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTENDCT1[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 1 End Count
+The contents of this register can be used to position the End of the ADC Reset
+conversion signal.</Field_Description></Field1></Fields></Register><Register Address="0x19" Name="ADCRSTSTCT2"><Name>ADCRSTSTCT2</Name><Address>0x19</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>4000</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTSTCT2[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 2 Start Count
+The contents of this register can be used to position the Start of the ADC Reset conversion
+signal.</Field_Description></Field1></Fields></Register><Register Address="0x1A" Name="ADCRSTENDCT2"><Name>ADCRSTENDCT2</Name><Address>0x1A</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>4005</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTENDCT2[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 2 End Count
+The contents of this register can be used to position the End of the ADC Reset
+conversion signal.</Field_Description></Field1></Fields></Register><Register Address="0x1B" Name="ADCRSTSTCT3"><Name>ADCRSTSTCT3</Name><Address>0x1B</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6000</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTSTCT3[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 3 Start Count
+The contents of this register can be used to position the Start of the ADC Reset conversion
+signal.</Field_Description></Field1></Fields></Register><Register Address="0x1C" Name="ADCRSTENDCT3"><Name>ADCRSTENDCT3</Name><Address>0x1C</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>6005</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ADCRSTENDCT3[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>ADC Reset 3 End Count
+The contents of this register can be used to position the End of the ADC Reset
+conversion signal.</Field_Description></Field1></Fields></Register><Register Address="0x1D" Name="PRPCOUNT"><Name>PRPCOUNT</Name><Address>0x1D</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>7999</EVM_Default><Mask_Pattern>FF0000</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>PRPCT[15:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>15</End_Bit><Field_Description>Pulse Repetition Count
+The contents of this register can be used to set the pulse repetition period (in number of clock cycles of the 4MHz clock).
+Maximum value = 0xFFFF.</Field_Description></Field1></Fields></Register><Register Address="0x1E" Name="CONTROL1"><Name>CONTROL1</Name><Address>0x1E</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>257</EVM_Default><Mask_Pattern>FFF000</Mask_Pattern><Mask_Data>000000</Mask_Data><No_Of_Fields>3</No_Of_Fields><Fields><Field1><Field_Name>NUMAVG[7:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>7</End_Bit><Field_Description>Number of Averages
+Specify an 8-bit value that corresponds to the (number of ADC samples to be
+averaged -1)
+For example, to average four ADC samples, set Number of Averages&lt;7:0&gt; = 3</Field_Description></Field1><Field2><Field_Name>TIMEREN[8:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>8</End_Bit><Field_Description>Timer Enable
+0 = Timer module is disabled &amp; all internal clocks are off.
+1 = Timer module is enabled</Field_Description></Field2><Field3><Field_Name>CLKALMPIN[11:9]</Field_Name><Start_Bit>9</Start_Bit><End_Bit>11</End_Bit><Field_Description>Clocks on Alarm Pins
+Internal clocks can be brought to PD_ALM &amp; LED_ALM pins for monitoring
+Note that register bit &lt;En Clocks on ALM&gt; must be set before using this.
+Clocks on ALM      Signal on                             Signal on
+pins&lt;2:0&gt;              PD_ALM pin                    LED_ALM pin
+
+000                  Sample LED2 pulse                 Sample LED1 pulse
+001                    LED2 LED pulse                      LED1 LED pulse
+010                Sample LED2 Ambient         Sample LED1 Ambient pulse
+011                     LED2 Convert                         LED1 Convert
+100              LED2 Ambient Convert          LED1 Ambient Convert
+101                     No output                                   No output
+110                     No output                                   No output
+111                     No output                                   No output</Field_Description></Field3></Fields></Register><Register Address="0x1F" Name="SPARE1"><Name>SPARE1</Name><Address>0x1F</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>UNUSED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Must always be set to ‘0’</Field_Description></Field1></Fields></Register><Register Address="0x20" Name="TIAGAIN"><Name>TIAGAIN</Name><Address>0x20</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FF3800</Mask_Pattern><Mask_Data/><No_Of_Fields>5</No_Of_Fields><Fields><Field1><Field_Name>RF_LED1[2:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>2</End_Bit><Field_Description>Program the value of RF for LED1
+000 = 500k Ohms
+001 = 250k Ohms
+010 = 100k Ohms
+011 = 50k Ohms
+100 = 25k Ohms
+101 = 10k Ohms
+110 = 1M Ohms
+111 = None</Field_Description></Field1><Field2><Field_Name>CF_LED1[7:3]</Field_Name><Start_Bit>3</Start_Bit><End_Bit>7</End_Bit><Field_Description>Program the value of CF for LED1
+00000 = 5pF (default value after reset)
+00001 = 5pF + 5 pF
+0010 = 15pF + 5pF
+00100 = 25pF + 5pF
+01000 = 50pF + 5pF
+10000 = 150pF + 5pF
+Note that any combination of above Cf is also supported by setting multiple bits to 1. For
+example, to get Cf=100pf, set D7-D3 = 01111</Field_Description></Field2><Field3><Field_Name>STG2GAIN1[10:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>10</End_Bit><Field_Description>Program Stage 2 gain for LED1
+000 = 0 dB, or linear gain of 1 (default after reset) 
+001 = 3.5 dB, or linear gain of 1.5
+010 = 6 dB, or linear gain of 2
+011 = 9.5 dB, or linear gain of 3
+100 = 12 dB, or linear gain of 4
+101 = Do not use
+110 = Do not use
+111 = Do not use</Field_Description></Field3><Field4><Field_Name>STAGE2EN1[14:14]</Field_Name><Start_Bit>14</Start_Bit><End_Bit>14</End_Bit><Field_Description>Enable Stage 2 for LED 1
+0 = Stage 2 is bypassed (default after reset)
+1 = Stage 2 is enabled with the gain value specified by the STG2GAIN1[2:0] bits</Field_Description></Field4><Field5><Field_Name>ENSEPGAIN[15:15]</Field_Name><Start_Bit>15</Start_Bit><End_Bit>15</End_Bit><Field_Description>Enable Separate Gain Modes
+0 = The value of both Rf and Cfis same for both LED2 &amp; LED1 signals, value specified by
+register bits Program RF for LED2&lt;2:0&gt; is used.
+1 = The Rf value is different for the LED2 &amp; LED1 signals, values are specified by register bits
+Program RF for LED1&lt;2:0&gt; &amp; Program RF for LED2&lt;2:0&gt;</Field_Description></Field5></Fields></Register><Register Address="0x21" Name="TIA_AMB_GAIN"><Name>TIA_AMB_GAIN</Name><Address>0x21</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>F03800</Mask_Pattern><Mask_Data/><No_Of_Fields>6</No_Of_Fields><Fields><Field1><Field_Name>RF_LED2[2:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>2</End_Bit><Field_Description>Program the value of RF for LED2
+000 = 500k Ohms
+001 = 250k Ohms
+010 = 100k Ohms
+011 = 50k Ohms
+100 = 25k Ohms
+101 = 10k Ohms
+110 = 1M Ohms
+111 = None</Field_Description></Field1><Field2><Field_Name>CF_LED2[7:3]</Field_Name><Start_Bit>3</Start_Bit><End_Bit>7</End_Bit><Field_Description>Program the value of CF for LED2
+00000 = 5pF (default value after reset)
+00001 = 5pF + 5 pF
+0010 = 15pF + 5pF
+00100 = 25pF + 5pF
+01000 = 50pF + 5pF
+10000 = 150pF + 5pF
+Note that any combination of above Cf is also supported by setting multiple bits to 1. For
+example, to get Cf=100pf, set D7-D3 = 01111</Field_Description></Field2><Field3><Field_Name>STG2GAIN2[10:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>10</End_Bit><Field_Description>Stage 2 gain setting for LED 2
+000 = 0 dB (or linear gain of 1)
+001 = 3 dB (or linear gain of 1.414)
+010 = 6 dB (or linear gain of 2)
+011 = 9 dB (or linear gain of 2.818)
+100 = 12 dB (or linear gain of 4)
+101 = Do Not Use
+110 = Do Not Use
+111 = Do Not Use</Field_Description></Field3><Field4><Field_Name>STAGE2EN2[14:14]</Field_Name><Start_Bit>14</Start_Bit><End_Bit>14</End_Bit><Field_Description>Stage 2 enable for LED 2
+0 = Stage 2 is bypassed (default after reset)
+1 = Stage 2 is enabled with the gain value specified by the STG2GAIN2[2:0] bits</Field_Description></Field4><Field5><Field_Name>FLTRCNRSEL[15:15]</Field_Name><Start_Bit>15</Start_Bit><End_Bit>15</End_Bit><Field_Description>Filter Corner Select
+0 = 500 Hz filter corner
+1 = 1000 Hz filter corner</Field_Description></Field5><Field6><Field_Name>AMBDAC[19:16]</Field_Name><Start_Bit>16</Start_Bit><End_Bit>19</End_Bit><Field_Description>Ambient DAC Value - Sets the Value of the Cancellation Current
+0000 = 0uA
+0001 = 1uA
+0010 = 2uA
+0011 = 3uA
+0100 = 4uA
+0101 = 5uA
+0110= 6uA
+0111 = 7uA
+1000 = 8uA
+1001= 9uA
+1010 = 10uA
+1011 = Do not use
+1100 = Do not use
+1101 = Do not use
+1110 = Do not use
+1111 = Do not use</Field_Description></Field6></Fields></Register><Register Address="0x22" Name="LEDCNTRL"><Name>LEDCNTRL</Name><Address>0x22</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>70676</EVM_Default><Mask_Pattern>FC0000</Mask_Pattern><Mask_Data/><No_Of_Fields>3</No_Of_Fields><Fields><Field1><Field_Name>LED2[7:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>7</End_Bit><Field_Description>Program LED Current for LED2 signal
+Use these register bits to specify the LED2 LED current setting for the LED2 LED.
+The nominal value of LED2 LED current will be = (LED2LED[7:0] / 256) x Full Scale Current
+where the Full-scale LED2 LED current is either 150mA or 75mA (specified by register bits LED
+Range&lt;1:0&gt;)</Field_Description></Field1><Field2><Field_Name>LED1[15:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>15</End_Bit><Field_Description>Program LED Current for LED1 signal
+Use these register bits to specify the LED current setting for the LED1 LED.The nominal value of LED1 LED current will be = (LED1LED[7:0] / 256) x Full Scale Current
+where the Full-scale LED current is either 150mA or 75mA (specified by register bits LED
+Range&lt;1:0&gt;)</Field_Description></Field2><Field3><Field_Name>LEDRANGE[17:16]</Field_Name><Start_Bit>16</Start_Bit><End_Bit>17</End_Bit><Field_Description>&lt;LED_Range&gt;                         LED current range for
+                        Tx ref V= 0.75V            Tx ref V= 0.5V                  Tx ref V= 1.0V
+00                            150mA                        100mA                                 200mA
+01                             75mA                           50mA                                 100mA
+10                            150mA                        100mA                                 200mA
+11                          Tx is OFF                     Tx is OFF                            Tx is OFF</Field_Description></Field3></Fields></Register><Register Address="0x23" Name="CONTROL2"><Name>CONTROL2</Name><Address>0x23</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>F870F8</Mask_Pattern><Mask_Data/><No_Of_Fields>11</No_Of_Fields><Fields><Field1><Field_Name>PDNAFE[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Power Down AFE Mode
+0 = The AFE is powered up
+1 = The entire AFE is powered down (including the Tx, Rx &amp; Diagnostics blocks)</Field_Description></Field1><Field2><Field_Name>PDNRX[1:1]</Field_Name><Start_Bit>1</Start_Bit><End_Bit>1</End_Bit><Field_Description>Power Down Receiver Mode
+0 = The Rx is powered up
+1 = Only the Rx module is powered down</Field_Description></Field2><Field3><Field_Name>PDNTX[2:2]</Field_Name><Start_Bit>2</Start_Bit><End_Bit>2</End_Bit><Field_Description>Power Down Transmitter Mode
+0 = The Tx is powered up
+1 = Only the Tx module is powered down</Field_Description></Field3><Field4><Field_Name>EN_SLOW_DIAG[8:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>8</End_Bit><Field_Description>Program Diagnostics Clock Mode
+0 = Fast Diag Mode
+1 = Slow Diag Mode</Field_Description></Field4><Field5><Field_Name>XTALDIS[9:9]</Field_Name><Start_Bit>9</Start_Bit><End_Bit>9</End_Bit><Field_Description>Crystal Disable Mode
+1 = The crystal module is disabled – an external 8MHz clock must be applied to the
+XIN pin
+0 = The crystal module is enabled, requires the 8MHz crystal to be connected to
+the XIN/XOUT pins</Field_Description></Field5><Field6><Field_Name>DIGOUT_TRISTATE[10:10]</Field_Name><Start_Bit>10</Start_Bit><End_Bit>10</End_Bit><Field_Description>This bit determines the state of the device digital output pins, including the clock output pin
+and SPI output pins. In order to avoid loading the SPI bus when multiple devices are
+connected, this bit must be set to '1' (3-state mode) whenever the device SPI is inactive.
+0 = Normal operation (default)
+1 = 3-state mode</Field_Description></Field6><Field7><Field_Name>TXBRGMOD[11:11]</Field_Name><Start_Bit>11</Start_Bit><End_Bit>11</End_Bit><Field_Description>Transmitter Bridge Mode
+0 = LED Driver is configured as H-Bridge
+1 = LED Driver is configured as push-pull</Field_Description></Field7><Field8><Field_Name>EN_ADC_BYP[15:15]</Field_Name><Start_Bit>15</Start_Bit><End_Bit>15</End_Bit><Field_Description>Enable ADC Bypass Mode
+0 = Normal Mode, Internal ADC is active
+1 = ADC Bypasss Mode. Analog signal is output to ADC_BYPP and ADC_BYPN Pins</Field_Description></Field8><Field9><Field_Name>RST_CLK_ON_PD_ALM[16:16]</Field_Name><Start_Bit>16</Start_Bit><End_Bit>16</End_Bit><Field_Description>Reset clock onto PD_ALM pin
+0 = Normal mode; no reset clock signal is connected to the PD_ALM pin
+1 = Reset clock signal is connected to the PD_ALM pin</Field_Description></Field9><Field10><Field_Name>TX_REF[18:17]</Field_Name><Start_Bit>17</Start_Bit><End_Bit>18</End_Bit><Field_Description>Sets the Transmitter Reference Voltage. This Tx Reference Voltage is
+available on the device TX_REF Pin.
+00 = 0.75V Tx Reference Voltage
+01 = 0.5V Tx Reference Voltage
+10 = 1.0V Tx Reference Voltage
+11 = 0.75V Tx Reference Voltage</Field_Description></Field10><Field11><Field_Name>RESERVED[19:19]</Field_Name><Start_Bit>19</Start_Bit><End_Bit>19</End_Bit><Field_Description>Must always be set to ‘0’</Field_Description></Field11></Fields></Register><Register Address="0x24" Name="SPARE2"><Name>SPARE2</Name><Address>0x24</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>UNUSED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Must always be set to ‘0’</Field_Description></Field1></Fields></Register><Register Address="0x25" Name="SPARE3"><Name>SPARE3</Name><Address>0x25</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>UNUSED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Must always be set to ‘0’</Field_Description></Field1></Fields></Register><Register Address="0x26" Name="SPARE4"><Name>SPARE4</Name><Address>0x26</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>UNUSED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Must always be set to ‘0’</Field_Description></Field1></Fields></Register><Register Address="0x27" Name="RESERVED1"><Name>RESERVED1</Name><Address>0x27</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>RESERVED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>This register is reserved for factory use. Readback values vary between devices.</Field_Description></Field1></Fields></Register><Register Address="0x28" Name="RESERVED2"><Name>RESERVED2</Name><Address>0x28</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFFFF</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>RESERVED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>This register is reserved for factory use. Readback values vary between devices.</Field_Description></Field1></Fields></Register><Register Address="0x29" Name="ALARM"><Name>ALARM</Name><Address>0x29</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R/W</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern>FFFF7F</Mask_Pattern><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALMPINCLKEN[7:7]</Field_Name><Start_Bit>7</Start_Bit><End_Bit>7</End_Bit><Field_Description>Alarm Pin Clock Enable
+0 = Disables monitoring of internal clocks – pins PD_ALM, LED_ALM function as diagnostic fault alarm output pins
+1 = Enables monitoring of internal clocks – these clocks can be brought out on PD_ALM &amp; LED_ALM selectively (depending on value of register bit Clocks on TP&lt;2:0&gt;).</Field_Description></Field1></Fields></Register><Register Address="0x2A" Name="LED2VAL"><Name>LED2VAL</Name><Address>0x2A</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the latest LED2 sample converted by the ADC. The ADC_RDY signal goes high each time that the contents of this register are updated. The host processor must readout this register before the next sample is converted by the AFE.</Field_Description></Field1></Fields></Register><Register Address="0x2B" Name="ALED2VAL"><Name>ALED2VAL</Name><Address>0x2B</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED2VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the latest LED2 ambient sample converted by the ADC. The ADC_RDY signal goes high each time that the contents of this register are updated. The host processor must readout this register before the next sample is converted by the AFE.</Field_Description></Field1></Fields></Register><Register Address="0x2C" Name="LED1VAL"><Name>LED1VAL</Name><Address>0x2C</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the latest LED1 sample converted by the ADC. The ADC_RDY signal goes high each time that the contents of this register are updated. The host processor must readout this register before the next sample is converted by the AFE.</Field_Description></Field1></Fields></Register><Register Address="0x2D" Name="ALED1VAL"><Name>ALED1VAL</Name><Address>0x2D</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>ALED1VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the latest LED1 ambient sample converted by the ADC. The ADC_RDY signal goes high each time that the contents of this register are updated. The host processor must readout this register before the next sample is converted by the AFE</Field_Description></Field1></Fields></Register><Register Address="0x2E" Name="LED2-ALED2VAL"><Name>LED2-ALED2VAL</Name><Address>0x2E</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED2_ALED2VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the LED2 sample after the LED2 ambient is
+subtracted [(LED2 – LED2 Ambient) Digital Value]. The host processor must readout this register before the next sample is converted by the AFE.</Field_Description></Field1></Fields></Register><Register Address="0x2F" Name="LED1-ALED1VAL"><Name>LED1-ALED1VAL</Name><Address>0x2F</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>1</No_Of_Fields><Fields><Field1><Field_Name>LED1_ALED1VAL[23:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>23</End_Bit><Field_Description>This register contains the digital value of the LED1 sample after the LED1 ambient is
+subtracted from it [(LED1 – LED1 Ambient) Digital Value]. The host processor must readout this register before the next sample is converted by the AFE.</Field_Description></Field1></Fields></Register><Register Address="0x30" Name="DIAG"><Name>DIAG</Name><Address>0x30</Address><Default_Data>0x0</Default_Data><Size>24</Size><Mode>R</Mode><Device_Addr>0x0</Device_Addr><EVM_Default>0</EVM_Default><Mask_Pattern/><Mask_Data/><No_Of_Fields>13</No_Of_Fields><Fields><Field1><Field_Name>INPSCLED[0:0]</Field_Name><Start_Bit>0</Start_Bit><End_Bit>0</End_Bit><Field_Description>Indicates that INP pin is Short Circuit to LED cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field1><Field2><Field_Name>INNSCLED[1:1]</Field_Name><Start_Bit>1</Start_Bit><End_Bit>1</End_Bit><Field_Description>Indicates that INN pin is Short Circuit to LED cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field2><Field3><Field_Name>INPSCGND[2:2]</Field_Name><Start_Bit>2</Start_Bit><End_Bit>2</End_Bit><Field_Description>Indicates that INP is Short Circuit to GND cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field3><Field4><Field_Name>INNSCGND[3:3]</Field_Name><Start_Bit>3</Start_Bit><End_Bit>3</End_Bit><Field_Description>Indicates that INN is Short Circuit to GND cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field4><Field5><Field_Name>PDSC[4:4]</Field_Name><Start_Bit>4</Start_Bit><End_Bit>4</End_Bit><Field_Description>Indicates that PD is Short Circuit
+0 = No Fault
+1 = Fault Present</Field_Description></Field5><Field6><Field_Name>PDOC[5:5]</Field_Name><Start_Bit>5</Start_Bit><End_Bit>5</End_Bit><Field_Description>Indicates that PD is Open Circuit
+0 = No Fault
+1 = Fault Present</Field_Description></Field6><Field7><Field_Name>OUTNSHGND[7:7]</Field_Name><Start_Bit>7</Start_Bit><End_Bit>7</End_Bit><Field_Description>Indicates that OUTN is Short Circuit TO GND cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field7><Field8><Field_Name>OUTPSHGND[6:6]</Field_Name><Start_Bit>6</Start_Bit><End_Bit>6</End_Bit><Field_Description>Indicates that OUTP is Short Circuit TO GND cable
+0 = No Fault
+1 = Fault Present</Field_Description></Field8><Field9><Field_Name>LEDSC[8:8]</Field_Name><Start_Bit>8</Start_Bit><End_Bit>8</End_Bit><Field_Description>Indicates that LED is Short Circuit
+0 = No Fault
+1 = Fault Present</Field_Description></Field9><Field10><Field_Name>LED2OPEN[10:10]</Field_Name><Start_Bit>10</Start_Bit><End_Bit>10</End_Bit><Field_Description>Indicates that LED 2 is Open Circuit
+0 = No Fault
+1 = Fault Present</Field_Description></Field10><Field11><Field_Name>LED1OPEN[9:9]</Field_Name><Start_Bit>9</Start_Bit><End_Bit>9</End_Bit><Field_Description>Indicates that LED 1 is Open Circuit
+0 = No Fault
+1 = Fault Present</Field_Description></Field11><Field12><Field_Name>LED_ALM[11:11]</Field_Name><Start_Bit>11</Start_Bit><End_Bit>11</End_Bit><Field_Description>LED Alarm Status. Indicates status of LED_ALM (same as LED_ALM pin)
+0 = No Fault
+1 = Fault Present</Field_Description></Field12><Field13><Field_Name>PD_ALM[12:12]</Field_Name><Start_Bit>12</Start_Bit><End_Bit>12</End_Bit><Field_Description>Photodiode Alarm Status. Indicates status of PD_ALM (same as PD_ALM pin)
+0 = No Fault
+1 = Fault Present</Field_Description></Field13></Fields></Register></Block></Register_Map></Project_Name>
